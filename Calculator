@@ -1,0 +1,58 @@
+import sys
+import os
+import subprocess
+
+def subtraction(alpha, beta):
+    return alpha - beta
+
+def addition(alpha, beta):
+            return alpha + beta
+
+def multiplication(alpha, beta):
+            return alpha * beta
+
+def division(alpha, beta):
+            return alpha / beta
+
+def exponent(alpha, beta):
+            return alpha ** beta
+
+def floor_division(alpha, beta):
+            return alpha // beta
+
+def modality(alpha, beta):
+            return alpha % beta
+
+
+print("Calculator -- by Erik Jarl")
+print("Options: \n1. addition \n 2. subtraction \n 3. multiplication \n 4. division \n 5. exponent \n 6. floor division \n 7. modality")
+
+while True:
+    operation = input("Enter the operation you want by its number \n")
+    if operation in ("1","2","3","4","5","6","7"):
+        value1 = float(input("Enter first value: "))
+        value2 = float(input("Enter second value: "))
+
+        if operation == "1":
+            print(str(value1) + "+" + str(value2) + "=" + str(addition(value1,value2)))
+        if operation == "2":
+            print(str(value1) + "-" + str(value2) + "=" + str(subtraction(value1, value2)))
+        if operation == "3":
+            print(str(value1) + "*" + str(value2) + "=" + str(multiplication(value1, value2)))
+        if operation == "4":
+            print(str(value1) + "/" + str(value2) + "=" + str(division(value1, value2)))
+        if operation == "5":
+            print(str(value1) + "^" + str(value2) + "=" + str(exponent(value1, value2)))
+        if operation == "6":
+            print(str(value1) + "//" + str(value2) + "=" + str(floor_division(value1, value2)))
+        if operation == "7":
+            print(str(value1) + "≡" + str(value2) + "=" + str(modality(value1, value2)))
+
+        repeat = str.lower((input("Another round? Y/N\n")))
+        if repeat == "y":
+            subprocess.call([sys.executable, os.path.realpath(__file__)] +
+                            sys.argv[1:])
+        elif repeat == "n":
+            break
+    else:
+        print("Invalid input")
